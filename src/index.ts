@@ -1,36 +1,14 @@
 import m from "mithril";
-
-const globalState = {
-  todos: [],
-  todoInput: "",
-};
-
-// const globalAction = {
-//   changeTodo: (value: string[]) => {
-//     globalState.todos = value;
-//   },
-//   deleteTodo: (index: number) => {
-//     console.log(`delete ${index}`);
-//     globalState.todos.splice(index, 1);
-//   },
-// };
-
-const addTodo = () => {
-  if (globalState.todoInput === "") {
-    return;
-  }
-  globalState.todos.push(globalState.todoInput);
-  globalState.todoInput = "";
-};
+import { globalAction, globalState } from "./models/todos";
 
 const Input = {
   view: function () {
     return m(
       "form",
       {
-        onsubmit: function (e: any) {
+        onsubmit: function (e: Event) {
           e.preventDefault();
-          addTodo();
+          globalAction.addTodo();
         },
       },
       [
@@ -38,8 +16,8 @@ const Input = {
           type: "text",
           placeholder: "add task",
           value: globalState.todoInput,
-          oninput: function (e: any) {
-            globalState.todoInput = e.target.value;
+          oninput: function (e: Event) {
+            globalState.todoInput = (e.target as HTMLInputElement).value;
           },
         }),
         m("button.button", { type: "submit" }, "Add task"),
