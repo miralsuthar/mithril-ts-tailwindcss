@@ -6,7 +6,8 @@
   "scripts": {
     "dev:webpack": "wait-on ./dist/index.js && webpack ./dist/index.js --output-path ./bin --watch",
     "tailwindcss": "npx tailwindcss -i ./style.css -o ./dist/output.css --watch",
-    "dev": "concurrently --kill-others \"tsc -watch\" \"yarn dev:webpack\" \"yarn tailwindcss\""
+    "dev": "concurrently --kill-others \"tsc -watch\" \"yarn dev:webpack\" \"yarn tailwindcss\"",
+    "build": "tsc && webpack ./dist/index.js --output-path ./bin"
   },
   "keywords": [],
   "author": "miralsuthar",
