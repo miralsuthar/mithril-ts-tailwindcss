@@ -11,7 +11,9 @@
   "author": "miralsuthar",
   "license": "ISC",
   "dependencies": {
-    "mithril": "^2.2.2"
+    "clsx": "^2.0.0",
+    "mithril": "^2.2.2",
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
     "@types/mithril": "^2.2.2",
