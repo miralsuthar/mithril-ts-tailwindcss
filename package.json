@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently --kill-others \"tsc -watch\" \"webpack ./dist/index.js --output-path ./bin --watch\""
+    "tailwindcss": "npx tailwindcss -i ./style.css -o ./dist/output.css --watch",
+    "dev": "concurrently --kill-others \"tsc -watch\" \"webpack ./dist/index.js --output-path ./bin --watch\" \"yarn tailwindcss\""
   },
   "keywords": [],
   "author": "miralsuthar",
@@ -17,6 +17,7 @@
     "@types/mithril": "^2.2.2",
     "@types/node": "^20.8.6",
     "concurrently": "^8.2.1",
+    "tailwindcss": "^3.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   }

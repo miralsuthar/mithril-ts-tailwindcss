@@ -20,7 +20,7 @@ const Input = {
             globalState.todoInput = (e.target as HTMLInputElement).value;
           },
         }),
-        m("button.button", { type: "submit" }, "Add task"),
+        m("button", { className: "bg-red-500", type: "submit" }, "Add task"),
       ]
     );
   },
