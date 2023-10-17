@@ -1,3 +1,3 @@
-# mithril-todo
+# mithril-ts-tailwindcss
 
-## Mithril-Todo application
+## Example Mithril-Todo application
