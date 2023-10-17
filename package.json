@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev:webpack": "wait-on ./dist/index.js && webpack ./dist/index.js --output-path ./bin --watch",
     "tailwindcss": "npx tailwindcss -i ./style.css -o ./dist/output.css --watch",
-    "dev": "concurrently --kill-others \"tsc -watch\" \"webpack ./dist/index.js --output-path ./bin --watch\" \"yarn tailwindcss\""
+    "dev": "concurrently --kill-others \"tsc -watch\" \"yarn dev:webpack\" \"yarn tailwindcss\""
   },
   "keywords": [],
   "author": "miralsuthar",
@@ -20,6 +21,7 @@
     "@types/node": "^20.8.6",
     "concurrently": "^8.2.1",
     "tailwindcss": "^3.3.3",
+    "wait-on": "^7.0.1",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   }
