@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:webpack": "wait-on ./dist/index.js && webpack ./dist/index.js --output-path ./bin --watch",
-    "tailwindcss": "npx tailwindcss -i ./style.css -o ./dist/output.css --watch",
+    "dev:webpack": "wait-on ./dist/index.js && webpack --watch",
+    "tailwindcss": "npx tailwindcss -i ./src/style.css -o ./dist/output.css --watch",
     "dev": "concurrently --kill-others \"tsc -watch\" \"yarn dev:webpack\" \"yarn tailwindcss\"",
-    "build": "tsc && webpack ./dist/index.js --output-path ./bin"
+    "build": "tsc && webpack"
   },
   "keywords": [],
   "author": "miralsuthar",
@@ -21,6 +21,7 @@
     "@types/mithril": "^2.2.2",
     "@types/node": "^20.8.6",
     "concurrently": "^8.2.1",
+    "html-webpack-plugin": "^5.5.3",
     "tailwindcss": "^3.3.3",
     "wait-on": "^7.0.1",
     "webpack": "^5.89.0",
