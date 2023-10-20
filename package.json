@@ -6,8 +6,9 @@
   "scripts": {
     "dev:webpack": "wait-on ./dist/index.js && webpack --watch",
     "tailwindcss": "npx tailwindcss -i ./src/style.css -o ./dist/output.css --watch",
-    "dev": "concurrently --kill-others \"tsc -watch\" \"yarn dev:webpack\" \"yarn tailwindcss\"",
-    "build": "tsc && webpack"
+    "dev": "concurrently --kill-others \"tsc -watch\" \"yarn dev:webpack\" \"yarn tailwindcss\" \"yarn server\"",
+    "build": "tsc && npx tailwindcss -i ./src/style.css -o ./dist/output.css && webpack",
+    "server": "wait-on ./bin/index.html && concurrently \"http-server -a localhost -p 3000\" \"open http://localhost:3000/bin/index.html\""
   },
   "keywords": [],
   "author": "miralsuthar",
@@ -21,7 +22,9 @@
     "@types/mithril": "^2.2.2",
     "@types/node": "^20.8.6",
     "concurrently": "^8.2.1",
+    "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.3",
+    "http-server": "^14.1.1",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2",
     "wait-on": "^7.0.1",
